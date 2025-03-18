@@ -4,12 +4,38 @@
 
 # History file for zsh
 HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=100000
+SAVEHIST=100000
 
+
+#AutoCompletions
+
+bindkey '\t' autosuggest-accept
+
+fpath+=~/.zfunc
+
+if type brew &>/dev/null; then
+    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+fi
+
+autoload -Uz compinit
+compinit -u
+zstyle ':completion:*' menu select
+
+
+
+#Vim mode
+bindkey -v
+export KEYTIMEOUT=1
 
 eval "$(~/.local/bin/mise activate)"
 eval "$(zoxide init zsh)"
+
+
+if [[ "${widgets[zle-keymap-select]#user:}" == "starship_zle-keymap-select" || \
+      "${widgets[zle-keymap-select]#user:}" == "starship_zle-keymap-select-wrapped" ]]; then
+    zle -N zle-keymap-select "";
+fi
 eval "$(starship init zsh)"
 
 
@@ -38,7 +64,7 @@ alias config='/usr/bin/git --git-dir=/Users/ahsyarif/dotfiles/ --work-tree=/User
 #export
 
 export PATH="$PATH:/usr/local/bin/docker"
-
+export EDITOR="nvim"
 
 
 
@@ -52,3 +78,6 @@ function y() {
 	fi
 	rm -f -- "$tmp"
 }
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
