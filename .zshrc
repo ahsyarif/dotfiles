@@ -28,9 +28,8 @@ zstyle ':completion:*' menu select
 bindkey -v
 export KEYTIMEOUT=1
 
-eval "$(~/.local/bin/mise activate)"
 eval "$(zoxide init zsh)"
-
+eval $(thefuck --alias FUCK)
 
 if [[ "${widgets[zle-keymap-select]#user:}" == "starship_zle-keymap-select" || \
       "${widgets[zle-keymap-select]#user:}" == "starship_zle-keymap-select-wrapped" ]]; then
@@ -48,8 +47,8 @@ source <(fzf --zsh)
 
 #Aliases
 
-alias la="eza -l -a --icons --no-user"
-alias ls="eza -l --icons --no-user"
+alias la="eza -l -a --icons --no-user --no-symlinks"
+alias ls="eza -l --icons --no-user --no-symlinks"
 alias v="nvim"
 alias x="exit"
 alias c="clear"
