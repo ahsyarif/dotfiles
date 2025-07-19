@@ -1,0 +1,6 @@
+theme=catppuccin-mocha
+
+font-family="Cascadia Mono NF"
+font-size=20
+font-feature=-liga
+font-thicken=true
