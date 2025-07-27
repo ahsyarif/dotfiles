@@ -1,6 +1,22 @@
-theme=catppuccin-mocha
+theme = catppuccin-mocha
 
-font-family="Cascadia Mono NF"
-font-size=20
-font-feature=-liga
-font-thicken=true
+font-family = "Cascadia Mono NF"
+font-size = 20
+font-feature = -liga
+font-thicken = true
+
+background-opacity = 0.85
+
+window-padding-balance = true
+
+window-colorspace = display-p3
+window-height = 30
+window-width = 120
+
+quick-terminal-position = center
+
+macos-titlebar-style = transparent
+
+
+
+copy-on-select = clipboard
